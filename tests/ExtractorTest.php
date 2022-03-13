@@ -3,6 +3,7 @@
 namespace AkuKoder\MyKad\Test;
 
 use AkuKoder\MyKad\Cleaner;
+use AkuKoder\MyKad\Exceptions\InvalidCodeException;
 use AkuKoder\MyKad\Extractor;
 use AkuKoder\MyKad\Internal\State;
 use Orchestra\Testbench\TestCase;
@@ -31,7 +32,8 @@ class ExtractorTest extends TestCase
 
     public function testStateNameIsInvalid()
     {
-        $this->assertEquals(State::INVALID_VALUE, (new Extractor('871003007888'))->stateName());
+        $this->expectException(InvalidCodeException::class);
+        (new Extractor('871003007888'))->stateName();
     }
 
 }
