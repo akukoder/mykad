@@ -12,8 +12,9 @@ class State
 
     public function __construct($input)
     {
+        $this->stateCodes = require __DIR__.'/../../config/state-codes.php';
+
         $this->name = $this->name($input);
-        $this->stateCodes = require __DIR__.'/../config/state-codes.php';
     }
 
     /**
