@@ -1,4 +1,4 @@
-# MyKad Package
+# MyKad
 
 Extract information from MyKad/MyKid number, validate the input from user and generate Faker data.
 
@@ -20,7 +20,7 @@ This package provides:
 
 You can install the package via composer:
 
-```
+```shell
 composer require akukoder/mykad
 ```
 
@@ -133,15 +133,74 @@ if ($validator->validate('9804AA-00-5335', true)) {
 }
 ```
 
+## Faker Provider
+
+To generate dummy data for your test or model factory, add these to on of your service provider or create new one. Let's 
+create a new service provider:
+
+```shell
+php artisan make:provider FakerServiceProvider
+```
+
+Register MyKadProvider in register method.
+
+```php
+<?php
+
+namespace App\Providers;
+
+use AkuKoder\MyKad\Faker\MyKadProvider;
+use Faker\{Factory, Generator};
+use Illuminate\Support\ServiceProvider;
+
+class FakerServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register(): void
+    {
+        $this->app->singleton(Generator::class, function () {
+            $faker = Factory::create();
+            $faker->addProvider(new MyKadProvider($faker));
+
+            return $faker;
+        });
+    }
+}
+```
+Make sure to include the additional Laravel service provider in the ```/config/app.php``` file.
+
+```php
+'providers' => [
+    App\Providers\FakerServiceProvider::class,
+],
+```
+
+Now you can use the new formatter like the other Faker formatters. In a Laravel factory, the syntax for the custom 
+formatter looks like this:
+
+```php
+public function definition(): array
+{
+    return [
+        'ic_number' => $this->faker->mykad,
+    ];
+}
+```
+
 ## Testing
 
 ```
 composer test
 ```
 
-## Reference
+## Credits
 
 1. [https://www.jpn.gov.my/en/faq/faq-identity-card](https://www.jpn.gov.my/en/faq/faq-identity-card)
+2. [https://hofmannsven.com/2021/faker-provider-in-laravel](https://hofmannsven.com/2021/faker-provider-in-laravel)
 
 ## License
 
