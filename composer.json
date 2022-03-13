@@ -35,7 +35,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Akukoder\\MyKad\\MyKadServiceProvider"
+                "AkuKoder\\MyKad\\MyKadServiceProvider"
             ]
         }
     }
