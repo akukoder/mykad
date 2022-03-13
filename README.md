@@ -1,7 +1,6 @@
 # MyKad Package
 
-MyKad or MyKid provides basic information for us, like date of birth, gender and state. But dealing with the task to
-extract the information sometimes quite hassle.
+Extract information from MyKad/MyKid number, validate the input from user and generate Faker data.
 
 ## About MyKad
 
