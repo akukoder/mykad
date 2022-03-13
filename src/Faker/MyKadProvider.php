@@ -2,6 +2,7 @@
 
 namespace AkuKoder\MyKad\Faker;
 
+use Faker\Generator;
 use Faker\Provider\Base;
 use Illuminate\Support\Carbon;
 
@@ -9,8 +10,10 @@ class MyKadProvider extends Base
 {
     protected array $codes = [];
 
-    public function __construct()
+    public function __construct(Generator $generator)
     {
+        parent::__construct($generator);
+
         $this->codes = require __DIR__.'/../../config/state-codes.php';
     }
 
@@ -19,7 +22,8 @@ class MyKadProvider extends Base
      *
      * @return string
      */
-    public function mykad(): string {
+    public function mykad(): string
+    {
         $date = Carbon::now();
         $output = null;
 
