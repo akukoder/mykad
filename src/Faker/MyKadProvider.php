@@ -2,9 +2,10 @@
 
 namespace AkuKoder\MyKad\Faker;
 
+use Faker\Provider\Base;
 use Illuminate\Support\Carbon;
 
-class MyKadProvider
+class MyKadProvider extends Base
 {
     protected array $codes = [];
 
