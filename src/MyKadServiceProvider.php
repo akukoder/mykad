@@ -2,9 +2,6 @@
 
 namespace AkuKoder\MyKad;
 
-use AkuKoder\MyKad\Faker\MyKadProvider;
-use Faker\Factory;
-use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
 
 class MyKadServiceProvider extends ServiceProvider
@@ -16,12 +13,7 @@ class MyKadServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Generator::class, function () {
-            $faker = Factory::create();
-            $faker->addProvider(new MyKadProvider);
 
-            return $faker;
-        });
     }
 
     /**
