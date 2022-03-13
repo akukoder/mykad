@@ -6,12 +6,18 @@ use AkuKoder\MyKad\Exceptions\InvalidCharacterException;
 use AkuKoder\MyKad\Exceptions\InvalidCodeException;
 use AkuKoder\MyKad\Exceptions\InvalidDateException;
 use AkuKoder\MyKad\Exceptions\InvalidLengthException;
-use AkuKoder\MyKad\Internal\State;
 
 class Validator
 {
     // Length of the input, exactly 12
     const inputLength = 12;
+
+    protected array $stateCodes = [];
+
+    public function __construct()
+    {
+        $this->stateCodes = require __DIR__.'/../config/state-codes.php';
+    }
 
     /**
      * Validate the string and return boolean result if success or throw exception on errors
@@ -109,11 +115,11 @@ class Validator
      * @param $input     string     MyKad / MyKid number
      * @return bool
      */
-    protected function verifyStateCode(string $input) : bool
+    public function verifyStateCode(string $input): bool
     {
         $code = substr($input, 6, 2);
 
-        return (new State($code))->name !== State::INVALID_VALUE;
+        return array_key_exists($code, $this->stateCodes);
     }
 
     /**
