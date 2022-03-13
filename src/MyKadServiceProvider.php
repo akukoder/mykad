@@ -18,7 +18,7 @@ class MyKadServiceProvider extends ServiceProvider
     {
         $this->app->singleton(Generator::class, function () {
             $faker = Factory::create();
-            $faker->addProvider(new MyKadProvider($faker));
+            $faker->addProvider(new MyKadProvider);
 
             return $faker;
         });
