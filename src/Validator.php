@@ -128,9 +128,11 @@ class Validator
      * @param string $input
      * @return bool
      */
-    protected function verifyDate(string $input) : bool
+    public function verifyDate(string $input) : bool
     {
         $year = substr($input, 0, 2);
+        $year += ($year >= 50 ? 1900 : 2000);
+
         $month = substr($input, 2, 2);
         $day = substr($input, 4, 2);
 
