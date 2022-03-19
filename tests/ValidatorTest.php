@@ -20,6 +20,11 @@ class ValidatorTest extends TestCase
         $this->validator = new Validator;
     }
 
+    public function testDataIsValid()
+    {
+        $this->assertTrue($this->validator->validate('000125140884'));
+    }
+
     public function testLengthException()
     {
         $this->expectException(InvalidLengthException::class);
@@ -38,7 +43,7 @@ class ValidatorTest extends TestCase
     {
         $this->expectException(InvalidDateException::class);
 
-        $this->validator->validate('878899417888', true);
+        $this->validator->validate('000125140884', true);
     }
 
     public function testStateCodeException()
