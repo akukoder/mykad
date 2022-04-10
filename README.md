@@ -44,7 +44,7 @@ echo (new MyKadExtractor('871003417888'))->dateOfBirth('d/m/Y');
 // Result: 03/10/1987
 ```
 ### Gender
-Get gender from the input. Basically, 1 for female and 0 for male.
+Get gender from the input. Basically, 1 for male and 0 for female.
 ```php
 use AkuKoder\MyKad\Extractor as MyKadExtractor;
 
