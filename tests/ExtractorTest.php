@@ -25,6 +25,13 @@ class ExtractorTest extends TestCase
         $this->assertEquals('03/10/1987', (new Extractor('871003417888'))->dateOfBirth('d/m/Y'));
     }
 
+    public function testAge()
+    {
+        $extractor = new Extractor('871003417888'); // DOB: 1987-10-03
+        $this->assertEquals(37, $extractor->age('2025-03-07'));
+        $this->assertEquals(38, $extractor->age('2025-10-03'));
+    }
+
     public function testStateNameIsValid()
     {
         $this->assertEquals('Selangor', (new Extractor('871003417888'))->stateName());

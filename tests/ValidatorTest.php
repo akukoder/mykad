@@ -43,7 +43,8 @@ class ValidatorTest extends TestCase
     {
         $this->expectException(InvalidDateException::class);
 
-        $this->validator->validate('000125140884', true);
+        // 871332 = 1987-13-32 (invalid month and day)
+        $this->validator->validate('871332417888', true);
     }
 
     public function testStateCodeException()

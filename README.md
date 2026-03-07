@@ -28,8 +28,9 @@ composer require akukoder/mykad
 With this package, your can extract some information from the MyKad/MyKid:
 
 1. Date of Birth
-2. State name
-3. Gender
+2. Age
+3. State name
+4. Gender
 
 ### Date of birth
 Get date of birth from the input.
@@ -43,6 +44,19 @@ echo (new MyKadExtractor('871003417888'))->dateOfBirth('d/m/Y');
 
 // Result: 03/10/1987
 ```
+
+### Age
+Get age in full years from date of birth. Optionally pass a reference date (Y-m-d); defaults to today.
+```php
+use AkuKoder\MyKad\Extractor as MyKadExtractor;
+
+echo (new MyKadExtractor('871003417888'))->age();
+// Result: 37 (as of today)
+
+echo (new MyKadExtractor('871003417888'))->age('2025-12-31');
+// Result: 38
+```
+
 ### Gender
 Get gender from the input. Basically, 1 for male and 0 for female.
 ```php

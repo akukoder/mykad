@@ -1,6 +1,8 @@
 <?php
 /*
- * Extracted from https://www.jpn.gov.my/my/kod-negeri, on 2022-03-13
+ * State codes for MyKad (NN in TTBBHH-NN-###J).
+ * Source: https://www.jpn.gov.my/my/kod-negeri (last verified 2025-03)
+ * 71, 72 = born abroad / consulate; 82–99 = unknown or legacy.
  */
 return [
     // Johor
@@ -90,6 +92,8 @@ return [
     // Wilayah Persekutuan (Putrajaya)
     '16' => 'Wilayah Persekutuan Putrajaya',
 
-    // Negeri Tidak Diketahui
+    // Luar Negara / Tidak Diketahui (born abroad, consulate, or unknown)
+    '71' => 'Unknown',  // lahir luar negara / consulate
+    '72' => 'Unknown',  // lahir luar negara / consulate (less common)
     '82' => 'Unknown',
 ];

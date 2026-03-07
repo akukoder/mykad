@@ -1,42 +1,45 @@
 {
-    "name": "akukoder/mykad",
-    "description":  "A package to deal with MyKad or MyKid format, including validation and Faker provider.",
-    "homepage": "https://akukoder.com",
-    "keywords": [
-        "mykad", "mykid", "validator"
-    ],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Syahril Zulkefli",
-            "email": "syahzul@gmail.com"
-        }
-    ],
-    "require": {
-        "php": "^7.4|^8.0|^8.1",
-        "nesbot/carbon": "^2.53.1|^3.0"
-    },
-    "require-dev": {
-        "orchestra/testbench": "^5.2",
-        "phpunit/phpunit": "^9.1"
-    },
-    "autoload": {
-        "psr-4": {
-            "AkuKoder\\MyKad\\": "src/",
-            "AkuKoder\\MyKad\\Test\\": "tests/"
-        }
-    },
-    "scripts": {
-        "test": "vendor/bin/phpunit"
-    },
-    "config": {
-        "sort-packages": true
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "AkuKoder\\MyKad\\MyKadServiceProvider"
-            ]
-        }
+  "name": "akukoder/mykad",
+  "description": "A package to deal with MyKad or MyKid format, including validation and Faker provider.",
+  "homepage": "https://github.com/akukoder",
+  "keywords": [
+    "mykad",
+    "mykid",
+    "validator"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Syahril Zulkefli",
+      "email": "syahzul@gmail.com"
     }
+  ],
+  "require": {
+    "php": "^7.4|^8.0|^8.1",
+    "nesbot/carbon": "^2.53.1|^3.0"
+  },
+    "require-dev": {
+        "laravel/framework": "^10.48.29",
+        "orchestra/testbench": "^8.0",
+        "phpunit/phpunit": "^10.0"
+    },
+  "autoload": {
+    "psr-4": {
+      "AkuKoder\\MyKad\\": "src/",
+      "AkuKoder\\MyKad\\Test\\": "tests/"
+    }
+  },
+  "scripts": {
+    "test": "vendor/bin/phpunit"
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "AkuKoder\\MyKad\\MyKadServiceProvider"
+      ]
+    }
+  }
 }

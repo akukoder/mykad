@@ -38,6 +38,20 @@ class Extractor
     }
 
     /**
+     * Get age in full years from date of birth.
+     *
+     * @param string|null $onDate Reference date (Y-m-d). Defaults to today.
+     * @return int
+     */
+    public function age(?string $onDate = null): int
+    {
+        $dob = Carbon::parse($this->dateOfBirth('Y-m-d'));
+        $ref = $onDate !== null ? Carbon::parse($onDate) : Carbon::now();
+
+        return (int) $dob->diffInYears($ref, false);
+    }
+
+    /**
      * Get state name from the input.
      *
      * @return string
